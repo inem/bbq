@@ -1,0 +1,31 @@
+<h2 class="mt-4">Зарегистрироваться</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <form class="row gy-2 gx-3 align-items-center">
+    <div class="col-auto mt-3">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control shadow-sm", 
+        placeholder: "Электронная почта" %>
+    </div>
+
+    <div class="col-auto mt-3">
+      <% if @minimum_password_length %>
+        <% min_pas_len = "(#{@minimum_password_length} символов минимум)" %>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control shadow-sm",
+        placeholder: "Пароль #{min_pas_len}" %>
+    </div>
+
+    <div class="col-auto mt-3">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control shadow-sm",
+        placeholder: "Подтвердите пароль" %>
+    </div>
+
+    <div class="col-auto mt-3">
+      <%= f.submit "Зарегистрироваться", class: "btn btn-primary" %>
+    </div>
+  </form>
+<% end %>
+
+<%= render "devise/shared/links" %>

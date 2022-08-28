@@ -1,9 +1,10 @@
 <% errors = model.errors %>
 
 <% if errors.any? %>
-  <div class="alert alert-danger">
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <div class="lead buffer-bottom">
-      В вашей форме <%= errors.count %> ошибок
+      <% errors_amount = errors.count %>
+      В вашей форме <%= errors_amount %> <%= inclination(errors_amount, "ошибка", "ошибки", "ошибок") %>
     </div>
 
     <ul>
@@ -11,5 +12,7 @@
         <li><%= message %></li>
       <% end %>
     </ul>
+
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 <% end %>
