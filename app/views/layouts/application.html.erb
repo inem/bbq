@@ -14,18 +14,20 @@
   </head>
 
   <body>
-    <div class="navbar navbar-default navbar-static-top">
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
+        <%= link_to "BBQ!", root_path, class: 'navbar-brand fw-bold' %>
 
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <% if user_signed_in? %>
-              <li><%= link_to 'Профиль', current_user %></li>
-              <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete %></li>
+              <li class="nav-item"><%= link_to 'Профиль', current_user, class:"nav-link active" %></li>
+              <li><%= button_to 'Выйти', destroy_user_session_path, method: :delete,
+                form: {data: {turbo_confirm: 'Are you sure?'}}, class:"nav-link active bg-light border-0" %>
+              </li>
             <% else %>
-              <li><%= link_to 'Войти', new_user_session_path %></li>
-              <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+              <li class="nav-item"><%= link_to 'Войти', new_user_session_path, class:"nav-link active" %></li>
+              <li class="nav-item"><%= link_to 'Зарегистрироваться', new_user_registration_path, class:"nav-link active" %></li>
             <% end %>
           </ul>
         </div>
@@ -38,7 +40,6 @@
           <%= yield %>
         </div>
       </div>
-
     </div> 
   </body>
 </html>

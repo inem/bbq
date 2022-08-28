@@ -1,4 +1,4 @@
-<div class="event">
+<div class="event mt-5">
   <div class="event-info row">
     <div class="col-md-12">
       <%= content_tag 'div', '', class: 'event-background',
@@ -6,7 +6,7 @@
 
       <div class="event-info-inner row">
         <div class="col-md-6">
-          <div class="event-description">
+          <div class="event-description mx-2 my-3">
             <h1><%= @event.title %></h1>
             <h3><%= @event.datetime %></h3>
             <h3><small><%= link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
