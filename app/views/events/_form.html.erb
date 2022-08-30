@@ -1,27 +1,26 @@
 <%= form_for(@event) do |f| %>
   <%= render partial: 'partials/form_errors', locals: {model: @event} %>
+  
+  <form class="row gy-2 gx-3 align-items-center">
+    <div class="col-auto mt-3">
+      <%= f.text_field :title, class: 'form-control shadow-sm', placeholder: "Название" %>
+    </div>
 
-  <div class="form-group mt-5">
-    <%= f.label :title, "Название" %>
-    <%= f.text_field :title, class: 'form-control mt-2' %>
-  </div>
+    <div class="col-auto mt-3">
+      <%= f.text_field :address, class: 'form-control shadow-sm', placeholder: "Адрес" %>
+    </div>
 
-  <div class="form-group mt-2">
-    <%= f.label :address, "Адрес" %>
-    <%= f.text_field :address, class: 'form-control mt-2' %>
-  </div>
+    <div class="col-auto mt-3">
+      <%= f.label :datetime, "Время" %>
+      <p class="mt-2"><%= f.datetime_select :datetime%></p>
+    </div>
 
-  <div class="form-group mt-2">
-    <%= f.label :datetime, "Время" %>
-    <p class="mt-2"><%= f.datetime_select :datetime, class: 'form-control' %></p>
-  </div>
+    <div class="col-auto mt-4">
+      <%= f.text_area :description, class: 'form-control shadow-sm', placeholder: "Описание" %>
+    </div>
 
-  <div class="form-group mt-2">
-    <%= f.label :description, "Описание" %>
-    <%= f.text_area :description, class: 'form-control mt-2' %>
-  </div>
-
-  <div class="actions mt-4">
-    <%= f.submit 'Сохранить', class: 'btn btn-primary' %> или <%= link_to 'Назад', :back %>
-  </div>
+    <div class="col-auto mt-4">
+      <%= f.submit 'Сохранить', class: 'btn btn-primary' %> или <%= link_to 'Назад', :back %>
+    </div>
+  </form>
 <% end %>
