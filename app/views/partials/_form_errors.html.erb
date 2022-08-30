@@ -1,4 +1,5 @@
 <% if resource.errors.any? %>
+  <p>You are here</p>
   <div class="alert alert-danger alert-dismissible fade show fw-bold" role="alert">
     <% errors_amount = resource.errors.count %>
     В вашей форме <%= errors_amount %> <%= inclination(errors_amount, "ошибка", "ошибки", "ошибок") %>
