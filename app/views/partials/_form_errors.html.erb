@@ -1,14 +1,10 @@
-<% errors = model.errors %>
+<% if resource.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show fw-bold" role="alert">
+    <% errors_amount = resource.errors.count %>
+    В вашей форме <%= errors_amount %> <%= inclination(errors_amount, "ошибка", "ошибки", "ошибок") %>
 
-<% if errors.any? %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <div class="lead buffer-bottom">
-      <% errors_amount = errors.count %>
-      В вашей форме <%= errors_amount %> <%= inclination(errors_amount, "ошибка", "ошибки", "ошибок") %>
-    </div>
-
-    <ul>
-      <% errors.full_messages.each do |message| %>
+    <ul class="mt-2">
+      <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
