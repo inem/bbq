@@ -4,8 +4,8 @@
     В вашей форме <%= errors_amount %> <%= inclination(errors_amount, "ошибка", "ошибки", "ошибок") %>
 
     <ul class="mt-2">
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% resource.errors.each do |error| %>
+        <li><%= error.full_message %></li>
       <% end %>
     </ul>
 

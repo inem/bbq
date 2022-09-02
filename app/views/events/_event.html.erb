@@ -1,11 +1,11 @@
 <div class="col-sm-6 col-md-4 mt-4 d-flex align-items-stretch">
-  <div class="card">
+  <div class="card w-100">
     <img src=<%= asset_path('event_thumb.jpg') %> class="card-img-top" alt="Картинка ивента">
   
     <div class="card-body">
       <div class="card-text">
         <h3><%= link_to event.title, event_path(event) %></h3>
-        <h3><small><%= event.datetime %></small></h3>
+        <h3><small><%= l event.datetime, format: :short %></small></h3>
         <div class="mt-5 mb-2"><%= event.address %></div>
       </div>
     </div>
