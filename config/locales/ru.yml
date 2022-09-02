@@ -32,3 +32,8 @@ ru:
 
     users:
       updated: 'Вы обновили свой профиль'
+
+  error_inclination:
+    one: '%{count} ошибка'
+    few: '%{count} ошибки'
+    many: '%{count} ошибок'

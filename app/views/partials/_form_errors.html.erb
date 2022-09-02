@@ -1,7 +1,6 @@
 <% if resource.errors.any? %>
   <div class="alert alert-danger alert-dismissible fade show fw-bold" role="alert">
-    <% errors_amount = resource.errors.count %>
-    В вашей форме <%= errors_amount %> <%= inclination(errors_amount, "ошибка", "ошибки", "ошибок") %>
+    В вашей форме <%= I18n.t :error_inclination, count: resource.errors.count %>
 
     <ul class="mt-2">
       <% resource.errors.each do |error| %>

@@ -14,7 +14,7 @@ gem "jbuilder"
 gem "bootsnap", require: false
 gem 'devise'
 gem 'devise-i18n'
-gem 'russian'
+gem 'rails-i18n'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
