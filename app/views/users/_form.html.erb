@@ -2,16 +2,18 @@
   <%= render partial: 'partials/form_errors', locals: {resource: @user} %>
 
   <div class="form-group mt-5">
-    <%= f.label :name, "Имя" %>
+    <%= f.label :name, I18n.t("activerecord.attributes.user.name") %>
     <%= f.text_field :name, class: 'form-control mt-2' %>
   </div>
 
   <div class="form-group mt-2">
-    <%= f.label :email, "Электронная почта" %>
+    <%= f.label :email, I18n.t("activerecord.attributes.user.email") %>
     <%= f.text_field :email, class: 'form-control mt-2' %>
   </div>
 
   <div class="actions mt-4">
-    <%= f.submit 'Сохранить', class: 'btn btn-primary' %> или <%= link_to 'Назад', :back %>
+    <%= f.submit I18n.t("confirmation.buttons.save"), class: 'btn btn-primary' %>
+    <%= " #{I18n.t("links.or")} " %>
+    <%= link_to I18n.t("links.back"), :back %>
   </div>
 <% end %>

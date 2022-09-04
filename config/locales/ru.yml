@@ -1,41 +1,99 @@
 ru:
   activerecord:
     models:
-      user: 'Пользователь'
-      event: 'Событие'
+      user: "Пользователь"
+      event: "Событие"
 
     attributes:
       user:
-        email: 'Электронная почта'
-        name: 'Имя'
-        password: 'Пароль'
-        password_confirmation: 'Подтверждение пароля'
+        email: "Электронная почта"
+        name: "Имя"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
       
       event:
-        title: 'Название'
-        address: 'Место проведения'
-        datetime: 'Дата и время'
-        description: 'Описание'
+        title: "Название"
+        address: "Место проведения"
+        datetime: "Дата и время"
+        description: "Описание"
       
     errors:
       models:
         user:
           attributes:
             email:
-              blank: 'не может быть пустой'
+              blank: "не может быть пустой"
   
   controllers:
     events:
-      created: 'Вы создали новое мероприятие'
+      created: "Вы создали новое мероприятие"
       updated: Вы обновили мероприятие
-      destroyed: 'Вы удалили мероприятие :('
+      destroyed: "Вы удалили мероприятие :("
 
     users:
-      updated: 'Вы обновили свой профиль'
+      updated: "Вы обновили свой профиль"
 
-  error_inclination:
-    one: '%{count} ошибка'
-    few: '%{count} ошибки'
-    many: '%{count} ошибок'
+  inclination:
+    error:
+      one: "%{count} ошибка"
+      few: "%{count} ошибки"
+      many: "%{count} ошибок"
 
-  are_you_sure: 'Вы уверены?'
+  confirmation:
+    messages:
+      are_you_sure: "Вы уверены?"
+      waiting_for_confirmation: "Ожидается подтверждение:"
+    
+    buttons:
+      update: "Обновить"
+      save: "Сохранить"
+
+  devise:
+    passwords:
+      forgot_your_password: "Забыли пароль?"
+      send_recover_instructions: "Отправить мне инструкции по восстановлению пароля"
+      characters_minimum: "символов минимум"
+      leave_this_blank: "оставьте это поле пустым если не хотите его изменить"
+      current_password_required: "Текущий пароль (необходим, чтобы подтвердить изменения)"
+      change_password: "Сменить пароль"
+
+  views:
+    user:
+      edit: "Редактировать пользователя"
+
+      show: 
+        profile: "Профиль"
+        have_events: "Организовал:"
+        have_no_events: "Пользователь пока не организовал ни одного события"
+
+    event:
+      edit: "Редактировать событие"
+      index: "События"
+      new: "Создать событие"
+      delete: "Удалить событие"
+
+    devise:
+      registrations:
+        new: "Зарегистрироваться"
+        
+        edit:
+          delete_account_title: "Удалить аккаунт"
+          delete_my_account: "Удалить мой аккаунт"
+        
+      sessions:
+        new: 
+          remember_me: "Запомнить меня"
+          login: "Войти"
+        
+        exit: "Выйти"
+
+  links:
+    back: "Назад"
+    already_have_account: "У меня уже есть аккаунт"
+    or: "или"
+
+  images:
+    alt:
+      event: "Картинка ивента"
+
+  in_your_form: "В вашей форме"

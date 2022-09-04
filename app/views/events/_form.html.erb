@@ -1,26 +1,31 @@
 <%= form_for(@event, html: { data: { turbo: false } }) do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {resource: @event} %>
+  <%= render partial: "partials/form_errors", locals: {resource: @event} %>
   
   <form class="row gy-2 gx-3 align-items-center">
     <div class="col-auto mt-3">
-      <%= f.text_field :title, class: 'form-control shadow-sm', placeholder: "Название" %>
+      <%= f.text_field :title, class: "form-control shadow-sm",
+        placeholder: I18n.t("activerecord.attributes.event.title") %>
     </div>
 
     <div class="col-auto mt-3">
-      <%= f.text_field :address, class: 'form-control shadow-sm', placeholder: "Адрес" %>
+      <%= f.text_field :address, class: "form-control shadow-sm",
+        placeholder: I18n.t("activerecord.attributes.event.address") %>
     </div>
 
     <div class="col-auto mt-3">
-      <%= f.label :datetime, "Время" %>
+      <%= f.label :datetime, I18n.t("activerecord.attributes.event.datetime") %>
       <p class="mt-2"><%= f.datetime_select :datetime%></p>
     </div>
 
     <div class="col-auto mt-4">
-      <%= f.text_area :description, class: 'form-control shadow-sm', placeholder: "Описание" %>
+      <%= f.text_area :description, class: "form-control shadow-sm",
+        placeholder: I18n.t("activerecord.attributes.event.description") %>
     </div>
 
     <div class="col-auto mt-4">
-      <%= f.submit 'Сохранить', class: 'btn btn-primary' %> или <%= link_to 'Назад', :back %>
+      <%= f.submit I18n.t("confirmation.buttons.save"), class: "btn btn-primary" %>
+      <%= " #{I18n.t("links.or")} " %>
+      <%= link_to I18n.t("links.back"), :back %>
     </div>
   </form>
 <% end %>

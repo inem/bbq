@@ -1,26 +1,26 @@
-<h2 class="mt-4">Войти</h2>
+<h2 class="mt-4"><%= I18n.t("views.devise.sessions.new.login") %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <form class="row gy-2 gx-3 align-items-center">
     <div class="col-auto mt-3">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control shadow-sm", 
-        placeholder: "Электронная почта" %>
+        placeholder: I18n.t("activerecord.attributes.user.email") %>
     </div>
 
     <div class="col-auto mt-3">
       <%= f.password_field :password, autocomplete: "current-password", class: "form-control shadow-sm", 
-        placeholder: "Пароль" %>
+        placeholder: I18n.t("activerecord.attributes.user.password") %>
     </div>
 
     <% if devise_mapping.rememberable? %>
       <div class="form-check-label mt-2">
         <%= f.check_box :remember_me %>
-        <%= f.label :remember_me, "Запомнить меня"  %>
+        <%= f.label :remember_me, I18n.t("views.devise.sessions.new.remember_me")  %>
       </div>
     <% end %>
 
     <div class="col-auto mt-3">
-      <%= f.submit "Войти", class: "btn btn-primary" %>
+      <%= f.submit I18n.t("views.devise.sessions.new.login"), class: "btn btn-primary" %>
     </div>
   </form>
 <% end %>

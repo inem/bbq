@@ -1,5 +1,5 @@
 <div class="card my-5">
-  <img src=<%= asset_path('event.jpg') %> class="card-img-top" alt="Картинка ивента">
+  <img src=<%= asset_path('event.jpg') %> class="card-img-top" alt=<%= I18n.t("images.alt.event") %>>
 
   <div class="card-body">
     <div class="card-text text-center">
@@ -12,11 +12,11 @@
     <div class="mt-5">
       <% if current_user_can_edit?(@event) %>
         <div class="text-center">
-          <%= link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary' %>
+          <%= link_to I18n.t("views.event.edit"), edit_event_path(@event), class: 'btn btn-primary' %>
         </div>
         <div class="text-center">
-          <%= button_to "Удалить событие", @event, method: :delete, 
-            form: {data: {turbo_confirm: t('are_you_sure')}}, class:"btn btn-danger mt-3" %>
+          <%= button_to I18n.t("views.event.delete"), @event, method: :delete, 
+            form: { data: { turbo_confirm: I18n.t("confirmation.messages.are_you_sure") } }, class:"btn btn-danger mt-3" %>
         </div>
       <% end %>
     </div>

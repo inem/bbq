@@ -14,26 +14,32 @@
   </head>
 
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
 
     <div class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <%= link_to "BBQ!", root_path, class: 'navbar-brand fw-bold' %>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+          aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <% if user_signed_in? %>
-              <li class="nav-item"><%= link_to 'Профиль', current_user, class:"nav-link active" %></li>
-              <li><%= button_to 'Выйти', destroy_user_session_path, method: :delete,
-                form: {data: {turbo_confirm: 'Are you sure?'}}, class:"nav-link active bg-light border-0" %>
+              <li class="nav-item"><%= link_to I18n.t("views.user.show.profile"), current_user, class:"nav-link active" %></li>
+              <li><%= button_to I18n.t("views.devise.sessions.exit"), destroy_user_session_path, method: :delete,
+                form: { data: { turbo_confirm: I18n.t("confirmation.messages.are_you_sure") } },
+                class:"nav-link active bg-light border-0" %>
               </li>
             <% else %>
-              <li class="nav-item"><%= link_to 'Войти', new_user_session_path, class:"nav-link active" %></li>
-              <li class="nav-item"><%= link_to 'Зарегистрироваться', new_user_registration_path, class:"nav-link active" %></li>
+              <li class="nav-item"><%= link_to I18n.t("views.devise.sessions.new.login"), new_user_session_path,
+                class:"nav-link active" %></li>
+              <li class="nav-item"><%= link_to I18n.t("views.devise.registrations.new"), new_user_registration_path,
+                class:"nav-link active" %></li>
             <% end %>
           </ul>
         </div>
