@@ -1,4 +1,4 @@
-<h2 class="mt-4"><%= I18n.t("views.user.edit") %></h2>
+<h2 class="mt-4"><%= t("views.user.edit") %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name),
   html: { method: :put, data: { turbo: false } }) do |f| %>
@@ -7,43 +7,43 @@
   <form class="row gy-2 gx-3 align-items-center">
     <div class="col-auto mt-3">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control shadow-sm", 
-        placeholder: I18n.t("activerecord.attributes.user.email") %>
+        placeholder: t("activerecord.attributes.user.email") %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div><%= I18n.t("confirmation.messages.waiting_for_confirmation") %> <%= resource.unconfirmed_email %></div>
+      <div><%= t("confirmation.messages.waiting_for_confirmation") %> <%= resource.unconfirmed_email %></div>
     <% end %>
 
     <div class="col-auto mt-3">
       <% if @minimum_password_length %>
-        <% min_pas_len = "(#{@minimum_password_length} #{I18n.t("devise.passwords.characters_minimum")})" %>
+        <% min_pas_len = "(#{@minimum_password_length} #{t("devise.passwords.characters_minimum")})" %>
       <% end %>
 
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control shadow-sm",
-        placeholder: "#{I18n.t("activerecord.attributes.user.password")} #{min_pas_len} 
-          (#{I18n.t("devise.passwords.leave_this_blank")})" %>
+        placeholder: "#{t("activerecord.attributes.user.password")} #{min_pas_len} 
+          (#{t("devise.passwords.leave_this_blank")})" %>
     </div>
 
     <div class="col-auto mt-3">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control shadow-sm",
-        placeholder: I18n.t("activerecord.attributes.user.password_confirmation") %>
+        placeholder: t("activerecord.attributes.user.password_confirmation") %>
     </div>
 
     <div class="col-auto mt-3">
       <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control shadow-sm",
-        placeholder: I18n.t("devise.passwords.current_password_required") %>
+        placeholder: t("devise.passwords.current_password_required") %>
     </div>
 
     <div class="col-auto mt-3">
-      <%= f.submit I18n.t("confirmation.buttons.update"), class: "btn btn-primary" %>
+      <%= f.submit t("confirmation.buttons.update"), class: "btn btn-primary" %>
     </div>
   </form>
 <% end %>
 
-<h3 class="mt-4"><%= I18n.t("views.devise.registrations.edit.delete_account_title") %></h3>
+<h3 class="mt-4"><%= t("views.devise.registrations.edit.delete_account_title") %></h3>
 
-<%= button_to I18n.t("views.devise.registrations.edit.delete_my_account"), registration_path(resource_name),
-  method: :delete, form: { data: { turbo_confirm: I18n.t("confirmation.buttons.are_you_sure") } },
+<%= button_to t("views.devise.registrations.edit.delete_my_account"), registration_path(resource_name),
+  method: :delete, form: { data: { turbo_confirm: t("confirmation.buttons.are_you_sure") } },
   class:"btn btn-primary mt-3" %>
 
-<div class="mt-5"><%= link_to I18n.t("links.back"), :back %></div>
+<div class="mt-5"><%= link_to t("links.back"), :back %></div>

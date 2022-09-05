@@ -1,4 +1,4 @@
-<h2 class="mt-4"><%= I18n.t("devise.passwords.forgot_your_password") %></h2>
+<h2 class="mt-4"><%= t("devise.passwords.forgot_your_password") %></h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name),
   html: { method: :post, data: { turbo: false } }) do |f| %>
@@ -7,11 +7,11 @@
   <form class="row gy-2 gx-3 align-items-center">
     <div class="col-auto mt-3">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control shadow-sm",
-        placeholder: I18n.t("activerecord.attributes.user.email") %>
+        placeholder: t("activerecord.attributes.user.email") %>
     </div>
 
     <div class="col-auto mt-3">
-      <%= f.submit I18n.t("devise.passwords.send_recover_instructions"), class: "btn btn-primary" %>
+      <%= f.submit t("devise.passwords.send_recover_instructions"), class: "btn btn-primary" %>
     </div>
   </form>
 <% end %>

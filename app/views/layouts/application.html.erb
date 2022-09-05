@@ -30,15 +30,15 @@
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <% if user_signed_in? %>
-              <li class="nav-item"><%= link_to I18n.t("views.user.show.profile"), current_user, class:"nav-link active" %></li>
-              <li><%= button_to I18n.t("views.devise.sessions.exit"), destroy_user_session_path, method: :delete,
-                form: { data: { turbo_confirm: I18n.t("confirmation.messages.are_you_sure") } },
+              <li class="nav-item"><%= link_to t("views.user.show.profile"), current_user, class:"nav-link active" %></li>
+              <li><%= button_to t("views.devise.sessions.exit"), destroy_user_session_path, method: :delete,
+                form: { data: { turbo_confirm: t("confirmation.messages.are_you_sure") } },
                 class:"nav-link active bg-light border-0" %>
               </li>
             <% else %>
-              <li class="nav-item"><%= link_to I18n.t("views.devise.sessions.new.login"), new_user_session_path,
+              <li class="nav-item"><%= link_to t("views.devise.sessions.new.login"), new_user_session_path,
                 class:"nav-link active" %></li>
-              <li class="nav-item"><%= link_to I18n.t("views.devise.registrations.new"), new_user_registration_path,
+              <li class="nav-item"><%= link_to t("views.devise.registrations.new"), new_user_registration_path,
                 class:"nav-link active" %></li>
             <% end %>
           </ul>

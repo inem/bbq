@@ -1,6 +1,6 @@
 <% if resource.errors.any? %>
   <div class="alert alert-danger alert-dismissible fade show fw-bold" role="alert">
-    <%= I18n.t "in_your_form" %> <%= I18n.t "inclination.error", count: resource.errors.count %>
+    <%= t "in_your_form" %> <%= t "inclination.error", count: resource.errors.count %>
 
     <ul class="mt-2">
       <% resource.errors.each do |error| %>
