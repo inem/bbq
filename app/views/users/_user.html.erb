@@ -1,0 +1,11 @@
+<span>
+  <span><img src=<%= user_avatar(user) %> width=30px height=30px alt=<%= t("images.alt.user_avatar") %>></span>
+  
+  <span>
+    <% if request.path == user_path(user) %>
+      <%= user.name %>
+    <% else %>
+      <%= link_to user.name, user_path(user), class:"text-decoration-none" %>
+    <% end %>
+  </span>
+</span>

@@ -1,0 +1,22 @@
+<div class="mt-2 border border-primary bg-light rounded">
+  <p class="mx-2 mt-2"><%= comment.body %></p>
+
+  <div class="mx-2 my-2 d-flex align-items-center justify-content-between">
+    <span>
+      <% if comment.user.present? %>
+        <%= render partial: 'users/user', object: comment.user %>
+      <% else %>
+        <em><strong><%= comment.user_name %></strong></em>
+      <% end %>
+    </span>
+
+    <em><%= l comment.created_at, format: :short %></em>
+  </div>
+  
+  <div class="text-end mb-2 me-2">
+    <% if current_user_can_edit?(comment) %>
+      <%= button_to t("views.comment.delete"), event_comment_path(comment.event, comment), method: :delete,
+        form: { data: { turbo_confirm: t("confirmation.messages.are_you_sure") } }, class: "btn btn-danger btn-sm mx-2" %>
+    <% end %>
+    </div>
+</div>

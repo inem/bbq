@@ -1,0 +1,12 @@
+<div class="mt-2 d-flex align-items-center justify-content-between">
+  <% if subscription.user.present? %>
+    <%= render partial: 'users/user', object: subscription.user %>
+  <% else %>
+    <em><%= subscription.user_name %></em>
+  <% end %>
+
+  <% if current_user_can_edit?(subscription) %>
+    <%= button_to "X", event_subscription_path(subscription.event, subscription), method: :delete,
+      form: { data: { turbo_confirm: t("confirmation.messages.are_you_sure") } }, class: "btn btn-danger btn-sm mx-2" %>
+  <% end %>
+</div>

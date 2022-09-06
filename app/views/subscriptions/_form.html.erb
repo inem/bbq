@@ -1,0 +1,19 @@
+<%= form_for [@event, subscription], html: { data: { turbo: false } } do |f| %>
+    <%= render partial: 'partials/form_errors', locals: {resource: subscription} %>
+
+    <% unless user_signed_in? %>
+        <div class="col-auto mt-3">
+          <%= f.text_field :user_name, class: "form-control shadow-sm",
+            placeholder: t("activerecord.attributes.subscribe.user_name") %>
+        </div>
+
+        <div class="col-auto mt-3">
+          <%= f.text_field :user_email, class: "form-control shadow-sm",
+            placeholder: t("activerecord.attributes.subscribe.user_email") %>
+        </div>
+    <% end %>
+
+    <div class="col-auto my-4">
+      <%= f.submit t("confirmation.buttons.subscribe"), class: 'btn btn-primary' %>
+    </div>
+<% end %>

@@ -16,6 +16,14 @@ ru:
         address: "Место проведения"
         datetime: "Дата и время"
         description: "Описание"
+
+      comment:
+        body: "Комментарий"
+        user_name: "Никнейм"
+
+      subscribe:
+        user_name: "Никнейм"
+        user_email: "Электронная почта"
       
     errors:
       models:
@@ -33,6 +41,16 @@ ru:
     users:
       updated: "Вы обновили свой профиль"
 
+    comments:
+      destroyed: "Комментарий удален"
+      created: "Ваш комментарий добавлен"
+      error: "Ошибка с комментарием"
+
+    subscriptions:
+      created: "Вы подписаны на это событие"
+      destroyed: "Участник отписан"
+      error: "Подписка/отписка не сработала"
+
   inclination:
     error:
       one: "%{count} ошибка"
@@ -47,6 +65,7 @@ ru:
     buttons:
       update: "Обновить"
       save: "Сохранить"
+      subscribe: "Подписаться"
 
   devise:
     passwords:
@@ -56,6 +75,9 @@ ru:
       leave_this_blank: "оставьте это поле пустым если не хотите его изменить"
       current_password_required: "Текущий пароль (необходим, чтобы подтвердить изменения)"
       change_password: "Сменить пароль"
+    
+    failure:
+      invalid: "Неправильные электронная почта или пароль."
 
   views:
     user:
@@ -71,6 +93,15 @@ ru:
       index: "События"
       new: "Создать событие"
       delete: "Удалить событие"
+
+      show:
+        calling: "Зовет:"
+        who_will_go: "Пойдут:"
+        i_will_go: "Я пойду:"
+
+    comment:
+      delete: "Удалить"
+
 
     devise:
       registrations:
@@ -95,5 +126,6 @@ ru:
   images:
     alt:
       event: "Картинка ивента"
+      user_avatar: "Аватарка юзера"
 
   in_your_form: "В вашей форме"

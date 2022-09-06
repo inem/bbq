@@ -21,4 +21,37 @@
       <% end %>
     </div>
   </div>
+
+  <div class="row mt-2">
+    <div class="col-md-8">
+      <div class="container mt-2">
+        <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
+        
+        <div class="mt-5">
+          <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mt-2">
+      <div class="container">
+        <h4><%= t("views.event.show.calling") %></h4>
+          <p><%= render partial: 'users/user', object: @event.user %></p>
+      </div>
+      <div class="container mt-2">
+        <h4><%= t("views.event.show.who_will_go") %></h4>
+        <div>
+          <p><%= render partial: 'subscriptions/subscription',
+            collection: @event.subscriptions.except(@new_subscription) %></p>
+        </div>
+      </div>
+      <div class="container mt-2">
+        <h4><%= t("views.event.show.i_will_go") %></h4>
+        <div>
+          <%= render partial: 'subscriptions/form',
+            locals: {subscription: @new_subscription || @event.subscriptions.build} %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
