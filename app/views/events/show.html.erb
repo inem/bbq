@@ -9,20 +9,16 @@
       <p><%= @event.description %></p>
     </div>
 
-    <div class="mt-5">
+    <div class="my-4 d-flex align-items-center justify-content-center">
       <% if current_user_can_edit?(@event) %>
-        <div class="text-center">
-          <%= link_to t("views.event.edit"), edit_event_path(@event), class: 'btn btn-primary' %>
-        </div>
-        <div class="text-center">
-          <%= button_to t("views.event.delete"), @event, method: :delete, 
-            form: { data: { turbo_confirm: t("confirmation.messages.are_you_sure") } }, class:"btn btn-danger mt-3" %>
-        </div>
+        <%= link_to t("views.event.edit"), edit_event_path(@event), class: 'btn btn-primary me-1' %>
+        <%= button_to t("views.event.delete"), @event, method: :delete, 
+          form: { data: { turbo_confirm: t("confirmation.messages.are_you_sure") } }, class:"btn btn-danger ms-1" %>
       <% end %>
     </div>
   </div>
 
-  <div class="row mt-2">
+  <div class="row my-2">
     <div class="col-md-8">
       <div class="container mt-2">
         <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
@@ -45,13 +41,15 @@
             collection: @event.subscriptions.except(@new_subscription) %></p>
         </div>
       </div>
-      <div class="container mt-2">
-        <h4><%= t("views.event.show.i_will_go") %></h4>
-        <div>
-          <%= render partial: 'subscriptions/form',
-            locals: {subscription: @new_subscription || @event.subscriptions.build} %>
+      <% unless current_user == @event.user %>
+        <div class="container mt-2">
+          <h4><%= t("views.event.show.i_will_go") %></h4>
+          <div>
+            <%= render partial: 'subscriptions/form',
+              locals: {subscription: @new_subscription || @event.subscriptions.build} %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

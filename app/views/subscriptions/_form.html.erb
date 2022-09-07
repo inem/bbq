@@ -4,12 +4,12 @@
     <% unless user_signed_in? %>
         <div class="col-auto mt-3">
           <%= f.text_field :user_name, class: "form-control shadow-sm",
-            placeholder: t("activerecord.attributes.subscribe.user_name") %>
+            placeholder: t("activerecord.attributes.subscription.user_name") %>
         </div>
 
         <div class="col-auto mt-3">
           <%= f.text_field :user_email, class: "form-control shadow-sm",
-            placeholder: t("activerecord.attributes.subscribe.user_email") %>
+            placeholder: t("activerecord.attributes.subscription.user_email") %>
         </div>
     <% end %>
 

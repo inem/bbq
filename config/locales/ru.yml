@@ -21,7 +21,8 @@ ru:
         body: "Комментарий"
         user_name: "Никнейм"
 
-      subscribe:
+      subscription:
+        user_id: "Пользователь"
         user_name: "Никнейм"
         user_email: "Электронная почта"
       
@@ -50,7 +51,7 @@ ru:
       created: "Вы подписаны на это событие"
       destroyed: "Участник отписан"
       error: "Подписка/отписка не сработала"
-      self_sub: "Вы не можете подписаться сами на себя"
+      self_sub: "не может подписаться сам на себя"
 
   inclination:
     error:
