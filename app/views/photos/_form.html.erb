@@ -1,0 +1,12 @@
+<%= form_for [@event, photo], html: { multipart: true }, data: { turbo: false } do |f| %>
+  <%= render partial: "partials/form_errors", locals: {resource: photo} %>
+
+  <div class="form-group my-2">
+    <%= f.label :photo, t("activerecord.attributes.photo.photo")%><br>
+    <%= f.file_field :photo, class: "mt-2 mb-2" %>
+  </div>
+
+  <div class="actions mt-4">
+    <%= f.submit t("confirmation.buttons.load"), class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -3,6 +3,7 @@ ru:
     models:
       user: "Пользователь"
       event: "Событие"
+      photo: "Фотография"
 
     attributes:
       user:
@@ -10,6 +11,7 @@ ru:
         name: "Имя"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+        avatar: "Аватарка"
       
       event:
         title: "Название"
@@ -25,9 +27,17 @@ ru:
         user_id: "Пользователь"
         user_name: "Никнейм"
         user_email: "Электронная почта"
+
+      photo:
+        photo: "Фотография"
       
     errors:
       models:
+        photo:
+          attributes:
+            photo:
+              blank: "не была прикреплена"
+              
         user:
           attributes:
             email:
@@ -54,6 +64,11 @@ ru:
       self_sub: "не может подписаться сам на себя"
       email_is_busy: "уже занята. Воспользуйтесь другой или войдите в аккаунт."
 
+    photos:
+      error: "Что-то не так с фоткой"
+      created: "Вы добавили фотографию к событию"
+      destroyed: "Вы удалили фотку"
+
   inclination:
     error:
       one: "%{count} ошибка"
@@ -69,6 +84,7 @@ ru:
       update: "Обновить"
       save: "Сохранить"
       subscribe: "Подписаться"
+      load: "Загрузить"
 
   devise:
     passwords:
@@ -83,6 +99,9 @@ ru:
       invalid: "Неправильные электронная почта или пароль."
 
   views:
+    photo:
+      added: "Добавил"
+      
     user:
       edit: "Редактировать пользователя"
 

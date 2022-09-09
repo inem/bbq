@@ -1,5 +1,5 @@
 <span>
-  <span><img src=<%= user_avatar(user) %> width=30px height=30px alt=<%= t("images.alt.user_avatar") %>></span>
+  <img src=<%= user_avatar(user) %> width=30px height=30px class="rounded" alt=<%= t("images.alt.user_avatar") %>>
   
   <span>
     <% if request.path == user_path(user) %>

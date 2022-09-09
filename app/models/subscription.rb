@@ -9,8 +9,8 @@ class Subscription < ApplicationRecord
   end
 
   with_options if: -> { user.present? } do
-  validates :user, uniqueness: {scope: :event_id}
-  validate :is_owner_error_check
+    validates :user, uniqueness: {scope: :event_id}
+    validate :is_owner_error_check
   end
 
   def user_name
@@ -30,9 +30,7 @@ class Subscription < ApplicationRecord
   end
 
   def is_owner_error_check
-    if user == event.user
-      errors.add(:user_id, :is_owner, message: I18n.t('controllers.subscriptions.self_sub'))
-    end
+    errors.add(:user_id, :is_owner, message: I18n.t('controllers.subscriptions.self_sub')) if user == event.user
   end
 
   def email_is_busy

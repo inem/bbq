@@ -1,5 +1,5 @@
 <div class="card my-5">
-  <img src=<%= asset_path('event.jpg') %> class="card-img-top" alt=<%= t("images.alt.event") %>>
+  <img src=<%= event_photo(@event) %> class="card-img-top" alt=<%= t("images.alt.event") %>>
 
   <div class="card-body">
     <div class="card-text text-center">
@@ -11,20 +11,34 @@
 
     <div class="my-4 d-flex align-items-center justify-content-center">
       <% if current_user_can_edit?(@event) %>
-        <%= link_to t("views.event.edit"), edit_event_path(@event), class: 'btn btn-primary me-1' %>
+        <%= link_to t("views.event.edit"), edit_event_path(@event), class: "btn btn-primary me-1" %>
         <%= button_to t("views.event.delete"), @event, method: :delete, 
           form: { data: { turbo_confirm: t("confirmation.messages.are_you_sure") } }, class:"btn btn-danger ms-1" %>
       <% end %>
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-12">
+      <div class="my-2 mx-2 py-2 px-2 bg-light">
+        <%= render partial: "photos/photo", collection: @event.photos.except(@new_photo), class: "col-3" %>
+      </div>
+
+      <div class="mx-2 py-2 px-2 text-center border border-primary rounded">
+        <%= render partial: "photos/form", locals: {photo: @new_photo || @event.photos.build} %>
+      </div>
+    </div>
+  </div>
+
   <div class="row my-2">
     <div class="col-md-8">
       <div class="container mt-2">
-        <%= render partial: 'comments/form', locals: {comment: @new_comment || @event.comments.build} %>
+        <div class="px-2 py-2">
+          <%= render partial: "comments/form", locals: {comment: @new_comment || @event.comments.build} %>
+        </div>
         
         <div class="mt-5">
-          <%= render partial: 'comments/comment', collection: @event.comments.except(@new_comment) %>
+          <%= render partial: "comments/comment", collection: @event.comments.except(@new_comment) %>
         </div>
       </div>
     </div>
@@ -32,12 +46,12 @@
     <div class="col-md-4 mt-2">
       <div class="container">
         <h4><%= t("views.event.show.calling") %></h4>
-          <p><%= render partial: 'users/user', object: @event.user %></p>
+          <p><%= render partial: "users/user", object: @event.user %></p>
       </div>
       <div class="container mt-2">
         <h4><%= t("views.event.show.who_will_go") %></h4>
         <div>
-          <p><%= render partial: 'subscriptions/subscription',
+          <p><%= render partial: "subscriptions/subscription",
             collection: @event.subscriptions.except(@new_subscription) %></p>
         </div>
       </div>
@@ -45,7 +59,7 @@
         <div class="container mt-2">
           <h4><%= t("views.event.show.i_will_go") %></h4>
           <div>
-            <%= render partial: 'subscriptions/form',
+            <%= render partial: "subscriptions/form",
               locals: {subscription: @new_subscription || @event.subscriptions.build} %>
           </div>
         </div>

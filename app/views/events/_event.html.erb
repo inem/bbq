@@ -8,6 +8,13 @@
         <h3><small><%= l event.datetime, format: :short %></small></h3>
         <div class="mt-5 mb-2"><%= event.address %></div>
       </div>
+
+      <div>
+        <% event.visitors.each do |user| %>
+          <img src=<%= user_avatar_thumb(user) %> width=30px height=30px class="rounded"
+            title=<%= user.name %> alt=<%= t("images.alt.user_avatar") %>>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

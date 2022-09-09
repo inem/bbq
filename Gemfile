@@ -3,18 +3,20 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.2"
 
-gem "rails", "~> 7.0.3", ">= 7.0.3.1"
-gem "sprockets-rails"
-gem "puma", "~> 5.0"
-gem "jsbundling-rails"
-gem "turbo-rails"
-gem "stimulus-rails"
-gem "cssbundling-rails"
-gem "jbuilder"
 gem "bootsnap", require: false
-gem 'devise'
-gem 'devise-i18n'
-gem 'rails-i18n'
+gem "carrierwave"
+gem "cssbundling-rails"
+gem "devise-i18n"
+gem "devise"
+gem "jbuilder"
+gem "jsbundling-rails"
+gem "puma", "~> 5.0"
+gem "rails-i18n"
+gem "rails", "~> 7.0.3", ">= 7.0.3.1"
+gem "rmagick"
+gem "sprockets-rails"
+gem "stimulus-rails"
+gem "turbo-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
