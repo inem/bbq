@@ -1,6 +1,6 @@
 module ApplicationHelper
   def user_avatar(user)
-    user.avatar.url || asset_path('user.png')
+    user.avatar.variant(:medium) || asset_path('user.png')
   end
 
   def event_photo(event)
@@ -24,10 +24,6 @@ module ApplicationHelper
   end
 
   def user_avatar_thumb(user)
-    if user.avatar.file.present?
-      user.avatar.thumb.url
-    else
-      asset_path('user.png')
-    end
+    user.avatar.variant(:thumb) || asset_path('user.png')
   end
 end

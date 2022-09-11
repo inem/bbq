@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :photos
   resources :subscriptions
   root to: "events#index"
   devise_for :users

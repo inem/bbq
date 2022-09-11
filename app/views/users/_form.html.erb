@@ -12,8 +12,8 @@
   </div>
 
   <div class="form-group mt-2">
-    <%= f.label :avatar, t("activerecord.attributes.user.avatar"), class:"mb-2" %>
-    <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
+    <%= f.label :avatar, t("activerecord.attributes.user.avatar") %><br>
+    <%= image_tag(user_avatar(@user), alt: t("images.alt.user_avatar"), class: "my-2") %><br>
     <%= f.file_field :avatar %>
   </div>
 

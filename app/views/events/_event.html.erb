@@ -11,8 +11,8 @@
 
       <div>
         <% event.visitors.each do |user| %>
-          <img src=<%= user_avatar_thumb(user) %> width=30px height=30px class="rounded"
-            title=<%= user.name %> alt=<%= t("images.alt.user_avatar") %>>
+          <%= image_tag(user_avatar_thumb(user), alt: t("images.alt.user_avatar"), style: 'width:30px; height:30px;',
+          class: "rounded") %>
         <% end %>
       </div>
     </div>
