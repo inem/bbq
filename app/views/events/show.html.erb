@@ -1,5 +1,5 @@
 <div class="card my-5">
-  <img src=<%= event_photo(@event) %> class="card-img-top" alt=<%= t("images.alt.event") %>>
+  <%= image_tag event_photo(@event), alt: t("images.alt.event"), class: "card-img-top"%>
 
   <div class="card-body">
     <div class="card-text text-center">
@@ -20,9 +20,11 @@
 
   <div class="row">
     <div class="col-12">
-      <div class="my-2 mx-2 py-2 px-2 bg-light">
-        <%= render partial: "photos/photo", collection: @event.photos.except(@new_photo), class: "col-3" %>
-      </div>
+      <% if @event.photos.persisted.any? %>
+        <div class="my-2 mx-2 py-2 px-2 bg-light">
+          <%= render partial: "photos/photo", collection: @event.photos.except(@new_photo), class: "col-3" %>
+        </div>
+      <% end %>
 
       <div class="mx-2 py-2 px-2 text-center border border-primary rounded">
         <%= render partial: "photos/form", locals: {photo: @new_photo || @event.photos.build} %>

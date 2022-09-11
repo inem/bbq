@@ -7,9 +7,9 @@ module ApplicationHelper
     photos = event.photos.persisted
   
     if photos.any?
-      photos.sample.photo.url
+      photos.sample.photo
     else
-      asset_path('event.jpg')
+      asset_path('event_thumb.jpg')
     end
   end
 
@@ -17,7 +17,7 @@ module ApplicationHelper
     photos = event.photos.persisted
   
     if photos.any?
-      photos.sample.photo.thumb.url
+      photos.sample.photo.variant(:medium)
     else
       asset_path('event_thumb.jpg')
     end
