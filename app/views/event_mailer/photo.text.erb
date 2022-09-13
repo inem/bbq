@@ -1,0 +1,10 @@
+<%= t('activerecord.attributes.event_mailer.photo.title') %>
+----
+
+<%= @photo.photo %>
+
+<%= t('activerecord.attributes.event_mailer.photo.author') %>: <%= @photo.user.name %>
+
+--------------------------------
+<%= t('activerecord.attributes.event_mailer.photo.event') %>: <%= @event.title %>
+<%= t('activerecord.attributes.event_mailer.photo.owner') %>: <%= @event.user.name %>

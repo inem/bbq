@@ -43,6 +43,12 @@ ru:
           event: 'Событие'
           datetime: 'Состоится'
           owner: 'Организатор'
+        photo:
+          title: 'Новая фотография'
+          author: 'Автор'
+          event: 'Событие'
+          owner: 'Организатор'
+
 
       photo:
         photo: "Фотография"
@@ -165,8 +171,11 @@ ru:
     alt:
       event: "Картинка ивента"
       user_avatar: "Аватарка юзера"
+      photo: "Фото ивента"
 
   event_mailer:
     new_subscriber: "Новая подписка на"
     new_comment: "Новый комментарий @"
+    new_photo: "Новое фото события"
+
   in_your_form: "В вашей форме"

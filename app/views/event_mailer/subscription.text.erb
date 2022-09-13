@@ -1,11 +1,11 @@
-Новая подписка
+<%= t('activerecord.attributes.event_mailer.subscription.title') %>
 ----
 
-Имя: <%= @name %>
-Email: <%=  @email %>
+<%= t('activerecord.attributes.event_mailer.subscription.name') %>: <%= @name %>
+<%= t('activerecord.attributes.event_mailer.subscription.email') %>: <%= @email %>
 
 ----------------------
 
-Событие: <%= @event.title %>
-Состоится: <%= l @event.datetime %>
-Организатор: <%= @event.user.name %>
+<%= t('activerecord.attributes.event_mailer.subscription.event') %>: <%= @event.title %>
+<%= t('activerecord.attributes.event_mailer.subscription.datetime') %>: <%= l @event.datetime %>
+<%= t('activerecord.attributes.event_mailer.subscription.owner') %>: <%= @event.user.name %>

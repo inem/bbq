@@ -1,0 +1,11 @@
+<h1><%= t('activerecord.attributes.event_mailer.photo.title') %></h1>
+<img src=<%=url_for(@photo.photo.variant(:medium)) %>, alt=<%= t("images.alt.photo") %>><br>
+<p><%= t('activerecord.attributes.event_mailer.photo.author') %>: <strong><%= @photo.user.name %></strong></p><br>
+
+<hr/>
+
+<%= t('activerecord.attributes.event_mailer.photo.event') %>
+<h3><%= @event.title %></h3>
+
+<%= t('activerecord.attributes.event_mailer.photo.owner') %>
+<h4><%= @event.user.name %></h4>
