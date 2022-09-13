@@ -28,6 +28,22 @@ ru:
         user_name: "Никнейм"
         user_email: "Электронная почта"
 
+      event_mailer:
+        comment:
+          title: 'Новый комментарий'
+          author: 'Автор'
+          event: 'Событие'
+          datetime: 'Состоится'
+          owner: 'Организатор'
+        subscription:
+          title: 'Новая подписка'
+          name: 'Имя'
+          email: 'Email'
+          author: 'Автор'
+          event: 'Событие'
+          datetime: 'Состоится'
+          owner: 'Организатор'
+
       photo:
         photo: "Фотография"
       
@@ -150,4 +166,7 @@ ru:
       event: "Картинка ивента"
       user_avatar: "Аватарка юзера"
 
+  event_mailer:
+    new_subscriber: "Новая подписка на"
+    new_comment: "Новый комментарий @"
   in_your_form: "В вашей форме"
