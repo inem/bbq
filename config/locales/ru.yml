@@ -52,6 +52,7 @@ ru:
 
       photo:
         photo: "Фотография"
+        user: "Пользователь"
       
     errors:
       models:
@@ -175,6 +176,7 @@ ru:
     back: "Назад"
     already_have_account: "У меня уже есть аккаунт"
     or: "или"
+    event: "Ссылка на событие"
 
   images:
     alt:

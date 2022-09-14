@@ -3,9 +3,9 @@
 
 <%= @comment.body %>
 
-<%= t('activerecord.attributes.event_mailer.comment.author') %>: <%= @comment.user.name %>
+<%= t('activerecord.attributes.event_mailer.comment.author') %>: <%= @comment.user_name || @comment.user.name %>
 
 --------------------------------
-<%= t('activerecord.attributes.event_mailer.comment.event') %>: <%= @event.title %>
+<%= t('activerecord.attributes.event_mailer.comment.event') %>: <%= link_to @event.title, @event %>
 <%= t('activerecord.attributes.event_mailer.comment.datetime') %>: <%= l @event.datetime %>
 <%= t('activerecord.attributes.event_mailer.comment.owner') %>: <%= @event.user.name %>
