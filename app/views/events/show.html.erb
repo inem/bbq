@@ -1,5 +1,9 @@
+<%= javascript_include_tag 'map' %>
+
 <div class="card my-5">
-  <%= image_tag event_photo(@event), alt: t("images.alt.event"), class: "card-img-top"%>
+  <%= image_tag event_photo(@event), alt: t("images.alt.event"), class: "card-img-top", style: "height: 600px" %>
+
+  <div id="map" data-address=<%= @event.address %> class="mb-2 w-100" style="height: 400px"></div>
 
   <div class="card-body">
     <div class="card-text text-center">
