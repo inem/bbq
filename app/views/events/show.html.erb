@@ -1,7 +1,5 @@
-<%= javascript_include_tag 'map' %>
-
 <div class="card my-5">
-  <%= image_tag event_photo(@event), alt: t("images.alt.event"), class: "card-img-top", style: "height: 600px" %>
+  <%= image_tag event_photo(@event), alt: t("images.alt.event"), class: "card-img-top", height: '600' %>
 
   <div id="map" data-address=<%= @event.address %> class="mb-2 w-100" style="height: 400px"></div>
 
@@ -25,8 +23,9 @@
   <div class="row">
     <div class="col-12">
       <% if @event.photos.persisted.any? %>
-        <div class="my-2 mx-2 py-2 px-2 bg-light">
-          <%= render partial: "photos/photo", collection: @event.photos.except(@new_photo), class: "col-3" %>
+        <div class="my-1 mx-2 py-2 px-2 row">
+          <h3 class="text-center mb-4">Галерея события</h3>
+          <%= render partial: "photos/photo", collection: @event.photos.except(@new_photo)%>
         </div>
       <% end %>
 
@@ -73,3 +72,6 @@
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag 'map' %>
+<%= javascript_include_tag 'lightbox' %>
