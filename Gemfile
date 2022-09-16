@@ -19,6 +19,10 @@ gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
 
+group :development do
+  gem "letter_opener"
+end
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "sqlite3", "~> 1.4"
