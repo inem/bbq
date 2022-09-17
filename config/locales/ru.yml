@@ -141,6 +141,7 @@ ru:
   views:
     photo:
       added: "Добавил"
+      delete: "Удалить фотографию"
       
     user:
       edit: "Редактировать пользователя"
@@ -163,8 +164,7 @@ ru:
 
     comment:
       delete: "Удалить"
-
-
+      
     devise:
       registrations:
         new: "Зарегистрироваться"

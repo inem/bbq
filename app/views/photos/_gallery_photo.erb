@@ -1,0 +1,11 @@
+<% owner = photo.user %>
+
+<div class="mt-2 d-flex align-items-center">
+    <%= link_to((render partial: "users/user", object: owner), user_path(owner)) %>
+
+    <% if current_user_can_edit?(photo) %>
+      <%= button_to t("views.photo.delete"), event_photo_path(photo.event, photo), method: :delete, 
+        form: { data: { turbo_confirm: t("confirmation.messages.are_you_sure") } },
+        class:"border-0 bg-transparent link-danger ms-4 fw-bold" %>
+    <% end %>
+</div>

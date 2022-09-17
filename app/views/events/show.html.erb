@@ -29,9 +29,11 @@
         </div>
       <% end %>
 
-      <div class="mx-2 py-2 px-2 text-center border border-primary rounded">
-        <%= render partial: "photos/form", locals: {photo: @new_photo || @event.photos.build} %>
-      </div>
+      <% if signed_in? %>
+        <div class="mx-2 py-2 px-2 text-center border border-primary rounded">
+          <%= render partial: "photos/form", locals: {photo: @new_photo || @event.photos.build} %>
+        </div>
+      <% end %>
     </div>
   </div>
 

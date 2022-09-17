@@ -1,6 +1,6 @@
 <span>
   <%= image_tag(user_avatar_thumb(user), alt: t("images.alt.user_avatar"), style: 'width:30px; height:30px;',
-          class: "rounded") %>
+          class: "rounded me-2") %>
   <span>
     <% if request.path == user_path(user) %>
       <%= user.name %>
