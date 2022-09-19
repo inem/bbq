@@ -198,4 +198,7 @@ ru:
     new_comment: "Новый комментарий @"
     new_photo: "Новое фото события"
 
+  pundit:
+    not_authorized: "Это вам недоступно!"
+    
   in_your_form: "В вашей форме"

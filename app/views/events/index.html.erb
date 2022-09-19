@@ -1,8 +1,10 @@
 <h1 class="mt-5"><%= t("views.event.index") %></h1>
 
-<div class="mt-5">
-  <%= link_to t("views.event.new"), new_event_path, class: 'btn btn-success' %>
-</div>
+<% if policy(Event).create? %>
+  <div class="mt-5">
+    <%= link_to t("views.event.new"), new_event_path, class: 'btn btn-success' %>
+  </div>
+<% end %>
 
 <div class="row mb-5">
   <%= render partial: 'events/event', collection: @events %>
