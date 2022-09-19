@@ -85,7 +85,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
   config.action_mailer.delivery_method = :mailjet_api
 
-  config.action_mailer.default_url_options = { host: 'https://radiant-coast-08572.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'http://supabbq.site' }
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)

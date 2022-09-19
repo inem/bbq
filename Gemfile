@@ -24,7 +24,15 @@ group :development do
 end
 
 group :development, :test do
+  gem "bcrypt_pbkdf", ">= 1.0", "< 2.0"
+  gem "capistrano-bundler", "~> 1.2"
+  gem "capistrano-passenger", "~> 0.2"
+  gem "capistrano-rails", "~> 1.2"
+  gem "capistrano-rbenv", "~> 2.1"
+  gem "capistrano", "~> 3.8"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "ed25519", ">= 1.2", "< 2.0"
+  gem "net-ssh", ">= 6.0.2"
   gem "sqlite3", "~> 1.4"
 end
 
