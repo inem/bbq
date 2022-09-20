@@ -1,19 +1,19 @@
 class EventsController < ApplicationController
-  after_action :verify_authorized, except: [:index]
+  after_action :verify_authorized, except: %i[index]
+  after_action :verify_policy_scoped, only: %i[index]
   before_action :authenticate_user!, except: %i[show index]
   before_action :set_event, only: %i[show edit update destroy]
-  skip_before_action :verify_authenticity_token
 
   def index
-    @events = Event.all
+    @events = policy_scope(Event)
   end
 
   def show
     begin
       authorize @event
     rescue Pundit::NotAuthorizedError
-      flash.now[:alert] = I18n.t("controllers.events.wrong_pincode")
-      render "password_form"
+      flash.now[:alert] = I18n.t("controllers.events.wrong_pincode") if params[:pincode].present?
+      render "password_form", locals: {event: @event}
     end
     
     @new_comment = @event.comments.build(params[:comment])

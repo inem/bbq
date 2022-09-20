@@ -13,10 +13,24 @@ class ApplicationController < ActionController::Base
     user_signed_in? && (model.user == current_user || (model.try(:event).present? && model.event.user == current_user))
   end
 
+  def pundit_user
+    UserContext.new(current_user, params[:pincode], cookies)
+  end
+
   private
 
   def user_not_authorized
     flash[:alert] = t('pundit.not_authorized')
     redirect_to(request.referrer || root_path)
+  end
+end
+
+class UserContext
+  attr_reader :user, :pincode, :cookies
+
+  def initialize(user, pincode, cookies)
+    @user = user
+    @pincode = pincode
+    @cookies = cookies
   end
 end
