@@ -9,7 +9,7 @@ module ApplicationHelper
     if photos.any?
       photos.sample.photo
     else
-      asset_path('event_thumb.jpg')
+      asset_path('event.jpg')
     end
   end
 
