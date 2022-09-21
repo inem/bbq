@@ -5,7 +5,7 @@ set :application, "bbq"
 set :repo_url, "git@github.com:Psixolog07/bbq.git"
 
 # Default branch is :master
-set :branch, ENV['BRANCH'] if ENV['BRANCH']
+set :branch, -> { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deploy/www"
@@ -21,7 +21,7 @@ set :deploy_to, "/home/deploy/www"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", 'config/master.key'
+append :linked_files, 'config/master.key'
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage"
