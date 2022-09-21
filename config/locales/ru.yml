@@ -198,6 +198,12 @@ ru:
     new_comment: "Новый комментарий @"
     new_photo: "Новое фото события"
 
+  user_mailer:
+    new_registration:
+      subject: "Добро пожаловать на Bbq!"
+      registration_success: "Вы успешно зарегистрировались на нашем замечательном сайте"
+
+
   pundit:
     not_authorized: "Это вам недоступно!"
     

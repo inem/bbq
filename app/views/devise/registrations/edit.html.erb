@@ -43,7 +43,7 @@
 <h3 class="mt-4"><%= t("views.devise.registrations.edit.delete_account_title") %></h3>
 
 <%= button_to t("views.devise.registrations.edit.delete_my_account"), registration_path(resource_name),
-  method: :delete, form: { data: { turbo_confirm: t("confirmation.buttons.are_you_sure") } },
+  method: :delete, form: { data: { turbo_confirm: t("confirmation.messages.are_you_sure") } },
   class:"btn btn-primary mt-3" %>
 
 <div class="mt-5"><%= link_to t("links.back"), :back %></div>
