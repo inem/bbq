@@ -14,7 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
   def pundit_user
-    UserContext.new(current_user, params[:pincode], cookies)
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+      @user.cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
+    end
+
+    UserContext.new(current_user, cookies.permanent["events_#{@event.id}_pincode"])
   end
 
   private
@@ -26,11 +30,11 @@ class ApplicationController < ActionController::Base
 end
 
 class UserContext
-  attr_reader :user, :pincode, :cookies
+  attr_reader :user, :pincode
+  delegate :user, to: :@user, allow_nil: true, prefix: "name"
 
-  def initialize(user, pincode, cookies)
+  def initialize(user, event_pincode)
     @user = user
-    @pincode = pincode
-    @cookies = cookies
+    @event_pincode = event_pincode
   end
 end

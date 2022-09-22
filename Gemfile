@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.4"
 
+gem "resque", "~> 1.27"
 gem "aws-sdk-s3"
 gem "bootsnap", require: false
 gem "cssbundling-rails"
@@ -24,12 +25,13 @@ group :development do
   gem "letter_opener"
 end
 
-group :development, :teFst do
+group :development, :test do
   gem "bcrypt_pbkdf", ">= 1.0", "< 2.0"
   gem "capistrano-bundler", "~> 1.2"
   gem "capistrano-passenger", "~> 0.2"
   gem "capistrano-rails", "~> 1.2"
   gem "capistrano-rbenv", "~> 2.1"
+  gem "capistrano-resque", "~> 0.2.3", require: false
   gem "capistrano", "~> 3.8"
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "ed25519", ">= 1.2", "< 2.0"

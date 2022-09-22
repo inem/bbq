@@ -4,7 +4,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def edit?
-    @record.user == @user&.user
+    @record.user == @user.name_user
   end
 
   def destroy?
@@ -22,12 +22,7 @@ class EventPolicy < ApplicationPolicy
   private
 
   def password_guard
-    return true if @record.pincode.blank? || edit? ||
-      @record.pincode_valid?(@user.cookies.permanent["events_#{@record.id}_pincode"])
-  
-    if @user.pincode.present? && @record.pincode_valid?(@user.pincode)
-      @user.cookies.permanent["events_#{@record.id}_pincode"] = @user.pincode
-    end
+    true if @record.pincode.blank? || edit? || @record.pincode_valid?(@user.event_pincode)
   end
 
   class Scope < Scope

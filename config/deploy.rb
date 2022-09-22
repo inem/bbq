@@ -10,6 +10,7 @@ set :branch, -> { `git rev-parse --abbrev-ref HEAD`.chomp }
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deploy/www"
 
+after "deploy:restart", "resque:restart"
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
@@ -21,7 +22,7 @@ set :deploy_to, "/home/deploy/www"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, 'config/master.key'
+append :linked_files, "config/master.key"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage"
@@ -29,7 +30,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpack
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
-# Default value for local_user is ENV['USER']
+# Default value for local_user is ENV["USER"]
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
