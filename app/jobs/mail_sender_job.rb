@@ -5,12 +5,12 @@ class MailSenderJob < ApplicationJob
     EventMailer.subscription(subscription).deliver_now
   end
 
-  def perform_comment_mail(comment, mail)
-    EventMailer.comment(comment, mail).deliver_now
+  def perform_comment_mail(comment, all_mails)
+    all_emails.each { |mail| EventMailer.comment(comment, mail).deliver_now }
   end
 
-  def perform_photo_mail(photo, mail)
-    EventMailer.photo(photo, mail).deliver_now
+  def perform_photo_mail(photo, all_mails)
+    all_emails.each { |mail| EventMailer.photo(photo, mail).deliver_now }
   end
 
   def perform_registration_mail(user)
