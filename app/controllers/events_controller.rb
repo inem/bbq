@@ -10,6 +10,10 @@ class EventsController < ApplicationController
 
   def show
     begin
+      if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+        cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
+      end
+
       authorize @event
     rescue Pundit::NotAuthorizedError
       flash.now[:alert] = I18n.t("controllers.events.wrong_pincode") if params[:pincode].present?

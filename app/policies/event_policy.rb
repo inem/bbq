@@ -1,14 +1,18 @@
 class EventPolicy < ApplicationPolicy
+  def owner?
+    @record.user == @user
+  end
+
   def create?
     user.present?
   end
 
   def edit?
-    @record.user == @user.name_user
+    owner?
   end
 
   def destroy?
-    edit?
+    owner?
   end
   
   def show?
@@ -16,13 +20,14 @@ class EventPolicy < ApplicationPolicy
   end
   
   def update?
-    edit?
+    owner?
   end
 
   private
 
   def password_guard
-    true if @record.pincode.blank? || edit? || @record.pincode_valid?(@user.event_pincode)
+    true if @record.pincode.blank? || owner? ||
+      @record.pincode_valid?(@cookies&.permanent&["events_#{@record.id}_pincode"])
   end
 
   class Scope < Scope
