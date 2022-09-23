@@ -22,6 +22,6 @@ test:
 
 production:
   adapter: postgresql
-  user: deploy
-  password: Rails.application.credentials.dig(:vps, :db, :pass)
-  database: bbq
+  user: <%= Rails.application.credentials.dig(:vps, :db, :user_name) %>
+  password: <%= Rails.application.credentials.dig(:vps, :db, :pass) %>
+  database: <%= Rails.application.credentials.dig(:vps, :db, :db_name) %>
