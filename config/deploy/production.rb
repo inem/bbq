@@ -48,10 +48,11 @@
 #  }
 #
 # The server-based syntax can be used to override options:
-# ------------------------------------
 server "supabbq.site",
    user: "deploy",
-   roles: %w[web db app resque]
+   roles: %w[web db app resque_worker]
+   set :resque_environment_task, true
+   set :workers, { "#{fetch(:application)}*" => 1 }
 #   ssh_options: {
 #     user: "user_name", # overrides user setting above
 #     keys: %w(/home/user_name/.ssh/id_rsa),

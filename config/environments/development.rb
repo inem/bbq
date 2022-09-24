@@ -8,6 +8,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.active_storage.variant_processor = :mini_magick
 
+  config.active_job.queue_adapter = :async
+  
   config.cache_classes = false
 
   # Do not eager load code on boot.
