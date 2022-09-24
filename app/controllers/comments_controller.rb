@@ -41,7 +41,6 @@ class CommentsController < ApplicationController
   end
 
   def notify_subscribers(event, comment)
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email] - [comment.user&.email]).uniq
-    MailSenderJob.perform_comment_mail_later(comment, all_emails)
+    MailSenderJob.perform_comment_mail(event, comment)
   end
 end
