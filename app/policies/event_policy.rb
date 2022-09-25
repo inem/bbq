@@ -26,8 +26,7 @@ class EventPolicy < ApplicationPolicy
   private
 
   def password_guard
-    true if @record.pincode.blank? || owner? ||
-      @record.pincode_valid?(@cookies&.permanent&["events_#{@record.id}_pincode"])
+    @record.pincode.blank? || owner? || @record.pincode_valid?(@cookies&.permanent&["events_#{@record.id}_pincode"])
   end
 
   class Scope < Scope

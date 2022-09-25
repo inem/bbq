@@ -9,20 +9,17 @@ class EventsController < ApplicationController
   end
 
   def show
-    begin
-      if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
-        cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
-      end
-
-      authorize @event
-    rescue Pundit::NotAuthorizedError
-      flash.now[:alert] = I18n.t("controllers.events.wrong_pincode") if params[:pincode].present?
-      render "password_form", locals: {event: @event}
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+      cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
     end
-    
+
+    authorize @event
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
     @new_photo = @event.photos.build(params[:photo]) 
+  rescue Pundit::NotAuthorizedError
+    flash.now[:alert] = I18n.t("controllers.events.wrong_pincode") if params[:pincode].present?
+    render "password_form", locals: {event: @event}
   end
 
   def new
