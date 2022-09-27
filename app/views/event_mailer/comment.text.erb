@@ -3,7 +3,7 @@
 
 <%= @comment.body %>
 
-<%= t('activerecord.attributes.event_mailer.comment.author') %>: <%= @comment.user_name || @comment.user.name %>
+<%= t('activerecord.attributes.event_mailer.comment.author') %>: <%= @comment.author.name %>
 
 --------------------------------
 <%= t('activerecord.attributes.event_mailer.comment.event') %>: <%= link_to @event.title, @event %>

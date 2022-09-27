@@ -1,11 +1,12 @@
 class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
+
   validates :user_name, presence: true, unless: -> { user.present? }
 
   with_options unless: -> { user.present? } do
     validates :user_email, presence: true, format: /\A[\w\-.]+@[\w\-.]+\z/, uniqueness: {scope: :event_id}
-    validate :email_is_busy 
+    validate :email_is_busy
   end
 
   with_options if: -> { user.present? } do
@@ -13,20 +14,8 @@ class Subscription < ApplicationRecord
     validate :is_owner_error_check
   end
 
-  def user_name
-    if user.present?
-      user.name
-    else
-      super
-    end
-  end
-
-  def user_email
-    if user.present?
-      user.email
-    else
-      super
-    end
+  def author
+    UserTypes.init(self)
   end
 
   def is_owner_error_check

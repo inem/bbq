@@ -6,13 +6,13 @@
       <% if comment.user.present? %>
         <%= render partial: 'users/user', object: comment.user %>
       <% else %>
-        <em><strong><%= comment.user_name %></strong></em>
+        <em><strong><%= comment.author.name %></strong></em>
       <% end %>
     </span>
 
     <em><%= l comment.created_at, format: :short %></em>
   </div>
-  
+
   <div class="text-end mb-2 me-2">
     <% if current_user_can_edit?(comment) %>
       <%= button_to t("views.comment.delete"), event_comment_path(comment.event, comment), method: :delete,

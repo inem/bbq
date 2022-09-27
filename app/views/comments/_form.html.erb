@@ -8,7 +8,7 @@
     <% unless user_signed_in? %>
         <div class="col-auto mt-3">
           <%= f.text_field :user_name, class: "form-control shadow-sm",
-            placeholder: t("activerecord.attributes.comment.user_name") %>
+            placeholder: t("activerecord.attributes.comment.author.name") %>
         </div>
     <% end %>
 
