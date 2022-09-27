@@ -5,9 +5,12 @@ class PhotosController < ApplicationController
   def create
     @new_photo = @event.photos.build(photo_params)
     @new_photo.user = current_user
+    @new_photo.tags = tags
+    @new_photo.user_tags = params[:user_tags]
 
-    if @new_photo.save
-      PhotoMailSenderJob.perform_later(@event, @new_photo)
+    if @new_photo.valid?
+      PhotoService.create(@event, photo_params, current_user)
+
       redirect_to @event, notice: I18n.t("controllers.photos.created")
     else
       render "events/show", alert: I18n.t("controllers.photos.error")
